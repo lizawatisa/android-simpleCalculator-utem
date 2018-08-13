@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     TextView ansTextView;
@@ -39,8 +40,13 @@ public class MainActivity extends AppCompatActivity {
     public void divPressed(View view) {
         first = Double.parseDouble(firstEdit.getText().toString()) ;
         second = Double.parseDouble(secondEdit.getText().toString());
-        ans = first / second;
-        ansTextView.setText(ans+"");
+
+        if (second==0){
+            Toast.makeText(MainActivity.this, "Number cannot be 0", Toast.LENGTH_LONG).show();
+        }
+
+        else
+        ansTextView.setText(""+(first / second));
     }
 
     public void mulPressed(View view) {
